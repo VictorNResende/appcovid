@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""codigoBase.ipynb
-
-
-
-Original file is located at
-    https://colab.research.google.com/drive/1MBSMg0_RWEKDvEY56Sha6X8RV4H4l37e
-"""
-
 import pandas as pd
 import plotly.express as px
 import streamlit as st 
@@ -18,15 +9,20 @@ df = pd.read_csv('https://raw.githubusercontent.com/wcota/covid19br/master/cases
 
 #MELHORANDO O NOME DAS COLUNAS DA TABELA
 df = df.rename(columns={'newDeaths': 'Novos óbitos','newCases': 'Novos casos','deaths_per_100k_inhabitants': 'Óbitos por 100 mil habitantes','totalCases_per_100k_inhabitants':'Casos por 100 mil habitantes'})
-
+#Imagem
+from PIL import Image
+foto = Image.open('https://www.gratispng.com/png-imdj5g/')
+st.image(foto,
+         caption='Logo do Streamlit',
+         use_column_width=False)
 #SELECÃO DO ESTADO
 estados = list(df['state'].unique())
-state = st.selectbox('Qual estado?', estados)
+state = st.slidebar.selectbox('Qual estado?', estados)
 
 #SELEÇÃO DA COLUNA
 #column ='Casos por 100 mil habitantes'
 colunas = ['Novos óbitos','Novos casos','Óbitos por 100 mil habitantes','Casos por 100 mil habitantes']
-column = st.selectbox('Qual tipo de informação?', colunas)
+column = st.slidebar.selectbox('Qual tipo de informação?', colunas)
 
 #SELEÇÃO DAS LINHAS QUE PERTECEM AO ESTADO 
 df = df[df['state'] == state]
