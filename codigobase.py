@@ -1,15 +1,8 @@
 # -*- coding: utf-8 -*-
 """codigoBase.ipynb
-
-
-
-Original file is located at
-    https://colab.research.google.com/drive/1MBSMg0_RWEKDvEY56Sha6X8RV4H4l37e
-"""
-
 import pandas as pd
 import plotly.express as px
-#import streamlit as st 
+import streamlit as st 
 
 #streamlit run codigoBase.py
 
@@ -22,7 +15,7 @@ df = df.rename(columns={'newDeaths': 'Novos óbitos','newCases': 'Novos casos','
 
 #SELECÃO DO ESTADO
 estados = list(df['state'].unique())
-state = st.slidebar.multiselect('Qual estado?', estados)
+state = st.slidebar.selectbox('Qual estado?', estados)
 
 #SELEÇÃO DA COLUNA
 #column ='Casos por 100 mil habitantes'
@@ -41,3 +34,4 @@ st.write('Nessa aplicação, o usuário tem a opção de escolher o estado e o t
 st.plotly_chart(fig, use_container_width=True)
 
 st.caption('Os dados foram obtidos a partir do site: https://github.com/wcota/covid19br')
+
