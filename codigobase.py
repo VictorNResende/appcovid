@@ -11,7 +11,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/wcota/covid19br/master/cases
 df = df.rename(columns={'newDeaths': 'Novos óbitos','newCases': 'Novos casos','deaths_per_100k_inhabitants': 'Óbitos por 100 mil habitantes','totalCases_per_100k_inhabitants':'Casos por 100 mil habitantes'})
 #Imagem
 from PIL import Image
-foto = Image.open('https://www.gratispng.com/png-imdj5g/')
+foto = Image.open('https://img2.gratispng.com/20180604/xlh/kisspng-becton-dickinson-philippines-inc-bd-associates-s-bd-logo-5b14dcc01514f7.3845814815280938880864.jpg')
 st.image(foto,
          caption='Logo do Streamlit',
          use_column_width=False)
